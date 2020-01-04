@@ -174,6 +174,10 @@ class LayersHerald extends Herald {
 
         return new Listener([
           // watch existing layers
+          /**
+           * @todo
+           * Need to watch for adding/removing layers from layer groups.
+           */
           layers.on('add', event => this.handleLayersAdd_(event)),
           layers.on('remove', event => this.handleLayersRemove_(event))
         ]);

@@ -62,7 +62,11 @@ class SourceHerald extends Herald {
    * @returns {number} suggested zIndex for that layer
    * @api
    */
-  findIndex(layer) {
+  findIndex(layer) {console.log('findIndex!');
+    /**
+     * @todo
+     * Needs to recurse into nested layer groups.
+     */
     const layers = this.ol3map.getLayers().getArray();
     let layerIndex = layers.indexOf(layer);
     const zIndex = layer.getZIndex();
