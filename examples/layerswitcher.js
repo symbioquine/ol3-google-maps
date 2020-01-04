@@ -1,5 +1,6 @@
 import Map from 'ol/Map.js';
 import View from 'ol/View.js';
+import LayerGroup from 'ol/layer/Group.js';
 import TileLayer from 'ol/layer/Tile.js';
 import OSMSource from 'ol/source/OSM.js';
 import 'ol-layerswitcher/src/ol-layerswitcher.css';
@@ -22,14 +23,19 @@ const osmLayer = new TileLayer({
   type: 'base'
 });
 
-
-const map = new Map({
-  // use OL3-Google-Maps recommended default interactions
-  interactions: defaultInteractions(),
+const groupLayer = new LayerGroup({
+  title: 'Base layers',
   layers: [
     googleLayer,
     osmLayer
   ],
+});
+
+
+const map = new Map({
+  // use OL3-Google-Maps recommended default interactions
+  interactions: defaultInteractions(),
+  layers: [groupLayer],
   target: 'map',
   view: new View({
     center: center,
