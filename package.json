@@ -15,7 +15,7 @@
     "pretest": "npm run lint",
     "test": "npm run karma -- --single-run",
     "karma": "karma start test/karma.config.js",
-    "serve-examples": "webpack-dev-server --config examples/webpack/config.js --mode development --watch",
+    "serve-examples": "webpack-dev-server --host 0.0.0.0 --config examples/webpack/config.js --mode development --watch",
     "build-examples": "webpack --config examples/webpack/config.js --mode production",
     "build-package": "npm run transpile && npm run copy-css && npm run copy-readme && node tasks/prepare-package",
     "build-index": "npm run build-package && node tasks/generate-index",
