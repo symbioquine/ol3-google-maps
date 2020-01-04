@@ -1,6 +1,7 @@
 /**
  * @module olgm/herald/Layers
  */
+import LayerGroup from 'ol/layer/Group.js';
 import ImageLayer from 'ol/layer/Image.js';
 import TileLayer from 'ol/layer/Tile.js';
 import VectorLayer from 'ol/layer/Vector.js';
@@ -269,6 +270,8 @@ class LayersHerald extends Herald {
     } else if (layer instanceof ImageLayer &&
           this.watchOptions_.image !== false) {
       this.imageWMSSourceHerald_.watchLayer(layer);
+    } else if (layer instanceof LayerGroup) {
+      layer.getLayers().forEach(lyr => this.watchLayer_(lyr));
     }
   }
 
@@ -301,6 +304,8 @@ class LayersHerald extends Herald {
       this.tileSourceHerald_.unwatchLayer(layer);
     } else if (layer instanceof ImageLayer) {
       this.imageWMSSourceHerald_.unwatchLayer(layer);
+    } else if (layer instanceof LayerGroup) {
+      layer.getLayers().forEach(layer => this.unwatchLayer_(layer));
     }
   }
 
