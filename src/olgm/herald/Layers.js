@@ -412,11 +412,9 @@ class LayersHerald extends Herald {
     let found = null;
 
     // find top-most Google layer
-    this.ol3map.getLayers().getArray().slice(0).reverse().every(
+    this.googleLayers_.slice(0).reverse().every(
       function(layer) {
-        if (layer instanceof GoogleLayer &&
-              layer.getVisible() &&
-              this.googleLayers_.indexOf(layer) !== -1) {
+        if (layer.getVisible()) {
           found = layer;
           return false;
         } else {
