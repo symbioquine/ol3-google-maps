@@ -270,7 +270,7 @@ class LayersHerald extends Herald {
     } else if (layer instanceof ImageLayer &&
           this.watchOptions_.image !== false) {
       this.imageWMSSourceHerald_.watchLayer(layer);
-    } else if (layer instanceof LayerGroup) {
+    } else if (layer instanceof LayerGroup || typeof layer.getLayers === 'function') {
       layer.getLayers().forEach(lyr => this.watchLayer_(lyr));
     }
   }
@@ -304,7 +304,7 @@ class LayersHerald extends Herald {
       this.tileSourceHerald_.unwatchLayer(layer);
     } else if (layer instanceof ImageLayer) {
       this.imageWMSSourceHerald_.unwatchLayer(layer);
-    } else if (layer instanceof LayerGroup) {
+    } else if (layer instanceof LayerGroup || typeof layer.getLayers === 'function') {
       layer.getLayers().forEach(layer => this.unwatchLayer_(layer));
     }
   }
