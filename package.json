@@ -1,15 +1,9 @@
 {
-  "name": "olgm",
+  "name": "@farmos.org/farmos-olgm",
   "version": "1.7.0",
-  "description": "OpenLayers Google Maps integration library",
-  "keywords": [
-    "map",
-    "mapping",
-    "ol",
-    "google maps"
-  ],
+  "description": "Fork of github.com/mapgears/ol3-google-maps for farmOS. See https://github.com/farmOS/farmOS-map/issues/99",
+  "keywords": [],
   "private": true,
-  "homepage": "http://mapgears.github.io/ol3-google-maps/",
   "scripts": {
     "lint": "eslint tasks test src/olgm examples",
     "pretest": "npm run lint",
@@ -24,17 +18,14 @@
     "copy-readme": "cp README.md build/olgm/",
     "transpile": "rm -rf build/olgm && mkdirp build && buble --input src/olgm --output build/olgm --no modules --sourcemap",
     "apidoc": "jsdoc config/jsdoc/api/index.md -c config/jsdoc/api/conf.json -P package.json -d build/apidoc",
-    "publish": "npm run build-package && npm publish build/olgm"
+    "publish": "npm login && npm run build-package && npm publish --access public build/olgm"
   },
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mapgears/ol3-google-maps.git"
+    "url": "git://github.com/mstenta/ol3-google-maps.git"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mapgears/ol3-google-maps/issues"
-  },
   "peerDependencies": {
     "ol": "^6.0.0"
   },
