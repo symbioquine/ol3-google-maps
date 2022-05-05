@@ -1,6 +1,6 @@
 {
   "name": "@farmos.org/farmos-olgm",
-  "version": "1.7.0-farmos1",
+  "version": "1.7.0-farmos2",
   "description": "Fork of github.com/mapgears/ol3-google-maps for farmOS. See https://github.com/farmOS/farmOS-map/issues/99",
   "keywords": [],
   "private": true,
@@ -55,7 +55,7 @@
     "marked": "0.4.0",
     "mkdirp": "^0.5.1",
     "mocha": "5.2.0",
-    "ol": "^6.1.1",
+    "ol": "^6.14.1",
     "ol-layerswitcher": "^3.3.0",
     "phantomjs-prebuilt": "^2.1.16",
     "recast": "0.15.2",
